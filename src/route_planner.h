@@ -22,7 +22,8 @@ class RoutePlanner {
     float distance;// Will hold the total distance from the start node to the end node
     std::vector<RouteModel::Node> ConstructFinalPath(RouteModel::Node *current_node); // Will construct the final path to be displayed on the map
     float CalculateHValue(const RouteModel::Node* node);
-   
+    std::vector<RouteModel::Node*> open_list;
+    RouteModel::Node* NextNode();
 };
 
 #endif

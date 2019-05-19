@@ -19,6 +19,7 @@ class RoutePlanner {
     RouteModel::Node* start_node; // Will point to the nodes in the model closest to the input nodes
     RouteModel::Node* end_node; // Will point to the nodes in the model closest to the input nodes
     float distance;// Will hold the total distance from the start node to the end node
+    std::vector<RouteModel::Node> ConstructFinalPath(RouteModel::Node *current_node); // Will construct the final path to be displayed on the map
    
 };
 

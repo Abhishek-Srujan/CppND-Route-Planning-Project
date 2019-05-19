@@ -11,7 +11,7 @@ class RoutePlanner {
   public:
     RoutePlanner(RouteModel &model, float start_x, float start_y, float end_x, float end_y);
     // Add public variables or methods declarations here.
-    float GetDistance() { return distance;}; // used to print out the total distance from `main.cpp`
+    float GetDistance() const { return distance;}; // used to print out the total distance from `main.cpp`
 
   private:
     // Add private variables or methods declarations here.
@@ -19,8 +19,7 @@ class RoutePlanner {
     RouteModel::Node* start_node; // Will point to the nodes in the model closest to the input nodes
     RouteModel::Node* end_node; // Will point to the nodes in the model closest to the input nodes
     float distance;// Will hold the total distance from the start node to the end node
-  
-  
+   
 };
 
 #endif

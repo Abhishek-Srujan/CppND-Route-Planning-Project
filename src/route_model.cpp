@@ -24,8 +24,8 @@ void RouteModel::CreateNodeToRoadHashmap()
           {
             //set the value for the `node_idx` key to be an empty vector of `const Model::Road*` objects
             node_to_road[node_idx] = std::vector<const Model::Road *> {};
-            node_to_road[node_idx].push_back(&road);
-          }
+		  }
+          node_to_road[node_idx].push_back(&road);
         }
     }  
   }  

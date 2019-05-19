@@ -1,6 +1,7 @@
 #include "route_planner.h"
 #include <algorithm>
 
+/* Constructor */
 RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y, float end_x, float end_y): m_Model(model) 
 {
 	start_x *= 0.01; //  Since node coordinates are scaled to values between 0 an 1
@@ -13,6 +14,7 @@ RoutePlanner::RoutePlanner(RouteModel &model, float start_x, float start_y, floa
     end_node = &model.FindClosestNode(end_x, end_y);
 }
 
+/* Constructs the final path to be displayed on the map, as A*Search could search through several paths*/
 std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node *current_node)
 {
   std::vector<RouteModel::Node> path_found {};
@@ -28,4 +30,12 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
   //since node coordinates are scaled down when they are stored in the model. They must be rescaled to get an accurate distance.
   distance *= m_Model.MetricScale();
   return path_found;  
+}
+
+/* A*Search */
+void RoutePlanner::AStarSearch()
+{
+  end_node -> parent = start_node;
+  m_Model.path = ConstructFinalPath(end_node);
+  return;
 }

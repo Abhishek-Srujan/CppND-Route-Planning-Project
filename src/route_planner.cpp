@@ -39,3 +39,9 @@ void RoutePlanner::AStarSearch()
   m_Model.path = ConstructFinalPath(end_node);
   return;
 }
+
+/* Calculate H Value. The method will return the distance from the passed argument to the `end_node`*/
+float RoutePlanner::CalculateHValue(const RouteModel::Node* node)
+{
+  return node->distance(*end_node);
+}
